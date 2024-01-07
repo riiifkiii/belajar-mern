@@ -4,12 +4,9 @@ import cors from "cors";
 import userRoute from "./routes/UserRoute.js";
 import dotenv from "dotenv";
 dotenv.config();
-const username = process.env.MONGODB_USER;
-const password = process.env.MONGODB_PASSWORD;
-const dbName = "test";
 
 const app = express();
-const dbUrl = `mongodb+srv://${username}:${password}@cluster0.knp27ox.mongodb.net/${dbName}?retryWrites=true&w=majority`;
+const dbUrl = process.env.MONGODB_URL;
 const options = {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
